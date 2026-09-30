@@ -9,12 +9,13 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Bianconeri | Perfume Masculino">
   <meta property="og:description" content="Elegância que impõe presença. Descubra Bianconeri.">
-  <meta property="og:image" content="./assets/images/perfume-bianconeri.svg">
+  <meta property="og:image" content="./assets/images/bianconeri-campaign.png">
   <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/campaign.css">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -42,23 +43,13 @@
   <main>
     <!-- HERO -->
     <section class="hero" id="inicio">
-      <div class="hero__stage" aria-hidden="true">
-        <div class="hero__layer hero__spot" data-depth="0.3"></div>
-        <div class="hero__layer hero__j" data-depth="0.9">J</div>
-        <div class="hero__layer hero__smoke" data-depth="0.5"></div>
-        <div class="hero__layer hero__smoke hero__smoke--2" data-depth="1.2"></div>
-        <div class="hero__layer hero__floor" data-depth="0.2"></div>
-        <div class="hero__layer hero__product" data-depth="2">
-          <div class="hero__float">
-            <!-- Trocar por ./assets/images/perfume-bianconeri.webp (PNG/WebP com fundo transparente) -->
-            <img src="./assets/images/perfume-bianconeri.svg" alt="Perfume masculino Bianconeri 100 ml" class="hero__perfume" width="300" height="600" fetchpriority="high">
-            <img src="./assets/images/perfume-bianconeri.svg" alt="" class="hero__reflection" width="300" height="600">
-          </div>
-        </div>
+      <div class="hero__art">
+        <img src="./assets/images/bianconeri-campaign.png" alt="Bianconeri: frasco branco com tampa prateada entre rochas negras e névoa. Elegância que impõe presença." width="1122" height="1402" fetchpriority="high" decoding="async">
       </div>
       <div class="hero__content">
         <div class="hero__copy">
-          <h1 class="hero__title reveal reveal--up">BIANCONERI</h1>
+          <p class="eyebrow">O contraste define a essência</p>
+          <h1 class="hero__title">BIANCONERI</h1>
           <p class="hero__tagline reveal reveal--up" style="--d:.15s">Elegância que impõe presença.</p>
           <p class="hero__label reveal reveal--up" style="--d:.25s">Perfume Masculino</p>
           <p class="hero__text reveal reveal--up" style="--d:.35s">Uma fragrância criada para homens que deixam sua presença antes mesmo de dizer uma palavra.</p>
@@ -74,6 +65,7 @@
     <!-- PRESENÇA -->
     <section class="presence" id="fragrancia">
       <div class="presence__inner">
+        <p class="eyebrow">Essência em cada detalhe</p>
         <h2 class="presence__title reveal reveal--up">A PRESENÇA COMEÇA ANTES DAS PALAVRAS</h2>
         <p class="presence__text reveal reveal--up" style="--d:.15s">Bianconeri foi criado para acompanhar homens que transformam confiança em presença. Uma fragrância marcante para momentos que merecem ser lembrados.</p>
         <ul class="presence__traits">
@@ -81,6 +73,26 @@
           <li class="trait reveal reveal--up" style="--d:.15s"><span class="trait__num">02</span><br><strong class="trait__word">ELEGÂNCIA</strong></li>
           <li class="trait reveal reveal--up" style="--d:.3s"><span class="trait__num">03</span><br><strong class="trait__word">PERSONALIDADE</strong></li>
         </ul>
+        <div class="notes" aria-labelledby="notes-title">
+          <h3 class="notes__title reveal reveal--up" id="notes-title">PIRÂMIDE OLFATIVA</h3>
+          <ol class="notes__list">
+            <li class="notes__item reveal reveal--up">
+              <p class="eyebrow">01 / Saída</p>
+              <h4 class="notes__name">Notas de topo</h4>
+              <p class="notes__text">Cítricos, laranja sanguínea, limão siciliano e bagas de zimbro.</p>
+            </li>
+            <li class="notes__item reveal reveal--up" style="--d:.15s">
+              <p class="eyebrow">02 / Corpo</p>
+              <h4 class="notes__name">Notas de coração</h4>
+              <p class="notes__text">Lavanda, pimentão (ou pimenta), sálvia esclaréia e gerânio.</p>
+            </li>
+            <li class="notes__item reveal reveal--up" style="--d:.3s">
+              <p class="eyebrow">03 / Base</p>
+              <h4 class="notes__name">Notas de fundo</h4>
+              <p class="notes__text">Vetiver, cedro e patchouli.</p>
+            </li>
+          </ol>
+        </div>
       </div>
     </section>
 
@@ -88,9 +100,10 @@
     <section class="product" id="produto">
       <div class="product__inner">
         <div class="product__visual reveal reveal--scale">
-          <img src="./assets/images/perfume-bianconeri.svg" alt="Frasco do perfume Bianconeri" loading="lazy" width="300" height="600">
+          <img src="./assets/images/bianconeri-campaign.png" alt="Frasco do perfume Bianconeri" loading="lazy" width="1122" height="1402">
         </div>
         <div class="product__info">
+          <p class="eyebrow">A sua próxima assinatura</p>
           <h2 class="product__title reveal reveal--up">BIANCONERI</h2>
           <p class="product__sub reveal reveal--up" style="--d:.1s">Perfume Masculino</p>
           <div class="product__cards">
@@ -145,7 +158,7 @@
       <div class="finale__particles" data-particles aria-hidden="true"></div>
       <h2 class="finale__title reveal reveal--up">BIANCONERI</h2>
       <p class="finale__text reveal reveal--up" style="--d:.15s">Não passe despercebido.</p>
-      <img class="finale__img reveal reveal--scale" src="./assets/images/perfume-bianconeri.svg" alt="Perfume Bianconeri em destaque" loading="lazy" width="300" height="600">
+      <img class="finale__img reveal reveal--scale" src="./assets/images/bianconeri-campaign.png" alt="Perfume Bianconeri em destaque" loading="lazy" width="1122" height="1402">
     </section>
 
     <!-- CTA FINAL -->
