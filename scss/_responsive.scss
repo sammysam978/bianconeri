@@ -1,0 +1,53 @@
+@media (max-width: 1200px) {
+  .hero__product { right: 6%; }
+  .hero__j { right: 4%; }
+  .header__nav ul { gap: 26px; }
+}
+@media (max-width: 992px) {
+  .burger { display: block; }
+  .header__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(5, 5, 5, .96);
+    border-bottom: $line;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(0, -12px, 0);
+    transition: opacity .4s, transform .4s $ease, visibility .4s;
+    ul { flex-direction: column; gap: 0; padding: 10px 24px 24px; }
+    a { display: block; padding: 18px 0; font-size: .85rem; border-bottom: 1px solid rgba(255, 255, 255, .06); }
+  }
+  .header.is-open .header__nav { opacity: 1; visibility: visible; transform: none; }
+  .header.is-open { background: rgba(5, 5, 5, .96); }
+  .product__inner { grid-template-columns: 1fr; }
+  .product__visual { min-height: 60vh; }
+  .experience { grid-template-columns: 1fr; }
+  .moment { min-height: 50vh; border-left: 0; border-top: 1px solid rgba(255, 255, 255, .08); }
+}
+@media (max-width: 768px) {
+  .header__buy { padding: 10px 18px; }
+  .hero { align-items: flex-end; }
+  .hero::after { content: ''; position: absolute; inset: 0; z-index: 2; background: linear-gradient(0deg, rgba(5, 5, 5, .96) 22%, rgba(5, 5, 5, .4) 55%, transparent 80%); pointer-events: none; }
+  .hero__product { left: 0; right: 0; top: 11vh; bottom: auto; height: 46vh; display: flex; justify-content: center; }
+  .hero__j { right: -6%; top: 6%; font-size: 70vh; opacity: .55; }
+  .hero__floor { height: 40%; }
+  .hero__content { padding: 0 0 56px; }
+  .hero__copy { max-width: none; }
+  .hero__text { font-size: .95rem; }
+  .presence__traits { grid-template-columns: 1fr; gap: 0; }
+  .sensory__glass { width: 220px; height: 220px; opacity: .6; }
+  .sensory__stone { width: 160px; height: 260px; opacity: .45; }
+  .sensory__metal { display: none; }
+  .sensory__word:nth-child(even) { text-align: left; }
+}
+@media (max-width: 576px) {
+  .header__logo { font-size: 1.25rem; letter-spacing: .24em; }
+  .hero__product { height: 42vh; top: 12vh; }
+  .hero__actions { flex-direction: column; }
+  .btn { width: 100%; min-height: 56px; padding: 18px 24px; }
+  .btn--lg { padding: 22px 24px; font-size: .85rem; }
+  .card:hover { transform: none; }
+  .moment { padding: 30px 24px; }
+}

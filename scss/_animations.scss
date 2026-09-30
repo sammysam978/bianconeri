@@ -1,0 +1,20 @@
+@keyframes float { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(0, -12px, 0); } }
+@keyframes drift { 0% { transform: translate3d(-6%, 0, 0) scale(1); } 100% { transform: translate3d(6%, -4%, 0) scale(1.12); } }
+@keyframes shine { 0%, 55% { left: -60%; } 100% { left: 140%; } }
+@keyframes rise { 0% { transform: translate3d(0, 0, 0); opacity: 0; } 15% { opacity: var(--o); } 100% { transform: translate3d(var(--dx), -110vh, 0); opacity: 0; } }
+@keyframes pulse { 0%, 100% { opacity: .75; } 50% { opacity: 1; } }
+
+.reveal {
+  transition: opacity 1.1s $ease, transform 1.1s $ease;
+  transition-delay: var(--d, 0s);
+  &--left { transform: translate3d(-70px, 0, 0); }
+  &--up { transform: translate3d(0, 34px, 0); }
+  &--scale { transform: scale(.94); }
+}
+.js .reveal { opacity: 0; }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}

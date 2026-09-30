@@ -1,0 +1,37 @@
+// Paleta
+$black: #050505;
+$black-soft: #0d0d0d;
+$graphite: #191919;
+$silver: #c7c7c7;
+$silver-light: #eeeeee;
+$white: #ffffff;
+$text-muted: #909090;
+// Tipografia
+$font-head: 'Bebas Neue', 'Oswald', 'Arial Narrow', sans-serif;
+$font-body: 'Manrope', 'Inter', system-ui, sans-serif;
+// Detalhes
+$ease: cubic-bezier(.22, 1, .36, 1);
+$chrome: linear-gradient(135deg, #ffffff 0%, #c7c7c7 38%, #7d7d7d 55%, #eeeeee 100%);
+$line: 1px solid rgba(255, 255, 255, .12);
+
+@mixin container {
+  width: min(1240px, calc(100% - 48px));
+  margin-inline: auto;
+}
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin eyebrow {
+  font-size: .72rem;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+@mixin chrome-text {
+  background: $chrome;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
