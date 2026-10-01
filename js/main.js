@@ -38,7 +38,7 @@
   // Parallax do Hero (mouse)
   const hero = $('#inicio');
   const layers = $$('[data-depth]', hero);
-  if (finePointer && !reduced) {
+  if (layers.length && finePointer && !reduced && 'IntersectionObserver' in window) {
     let tx = 0, ty = 0, cx = 0, cy = 0, running = false, visible = true;
     const STRENGTH = 12;
     const tick = () => {
@@ -75,9 +75,106 @@
     });
   }
 
+  // Feedback de clique também funciona com toque e teclado.
+  $$('.btn, .header__buy').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      if (reduced) return;
+      const rect = button.getBoundingClientRect();
+      const wave = document.createElement('span');
+      const size = Math.hypot(rect.width, rect.height) * 2;
+      wave.className = 'click-wave';
+      wave.setAttribute('aria-hidden', 'true');
+      wave.style.width = wave.style.height = `${size}px`;
+      wave.style.left = `${event.detail === 0 ? rect.width / 2 : event.clientX - rect.left}px`;
+      wave.style.top = `${event.detail === 0 ? rect.height / 2 : event.clientY - rect.top}px`;
+      button.appendChild(wave);
+      setTimeout(() => wave.remove(), 650);
+    });
+  });
+
+  // Galeria: botões nativos acessíveis por toque, mouse e teclado.
+  const productPhoto = $('#product-photo');
+  const thumbnails = $$('.gallery__thumb');
+  const gallery = $('.product__gallery');
+  const playButton = $('.gallery__play');
+  const stories = [
+    ['Uma assinatura em branco e preto.', 'O frasco Bianconeri reúne o contraste do branco e preto com o brilho da tampa prateada.'],
+    ['Presença na sua rotina.', 'Um detalhe de personalidade para acompanhar seus momentos e fazer parte do seu ritual.'],
+    ['Elegância em cada ângulo.', 'Linhas definidas, vidro e reflexos revelam os detalhes do frasco Bianconeri.'],
+    ['Uma saída de frescor.', 'Cítricos, laranja sanguínea, limão siciliano e bagas de zimbro abrem a composição.'],
+    ['A identidade que acompanha você.', 'O símbolo da Juventus encontra a sua próxima assinatura em um frasco de 100 ml.']
+  ];
+  let slide = 0;
+  let slideshow = null;
+  const showSlide = (index) => {
+      slide = (index + thumbnails.length) % thumbnails.length;
+      const button = thumbnails[slide];
+      const photo = $('img', button);
+      productPhoto.src = photo.getAttribute('src');
+      productPhoto.alt = photo.alt;
+      thumbnails.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+      $('.gallery__counter').textContent = `${String(slide + 1).padStart(2, '0')} / ${String(thumbnails.length).padStart(2, '0')}`;
+      $('.gallery__title').textContent = stories[slide][0];
+      $('.gallery__caption').textContent = stories[slide][1];
+      if (!reduced && productPhoto.animate) {
+        productPhoto.animate([{ opacity: .4 }, { opacity: 1 }], { duration: 250 });
+      }
+  };
+  const stopSlideshow = () => {
+    clearInterval(slideshow);
+    slideshow = null;
+    playButton.setAttribute('aria-pressed', 'false');
+    playButton.textContent = 'Reproduzir apresentação';
+    $('.gallery__story').setAttribute('aria-live', 'polite');
+  };
+  const selectSlide = (index) => { stopSlideshow(); showSlide(index); };
+  thumbnails.forEach((button, index) => button.addEventListener('click', () => selectSlide(index)));
+  $('[data-slide-prev]').addEventListener('click', () => selectSlide(slide - 1));
+  $('[data-slide-next]').addEventListener('click', () => selectSlide(slide + 1));
+  playButton.addEventListener('click', () => {
+    if (slideshow !== null) { stopSlideshow(); return; }
+    playButton.setAttribute('aria-pressed', 'true');
+    playButton.textContent = 'Pausar apresentação';
+    $('.gallery__story').setAttribute('aria-live', 'off');
+    slideshow = setInterval(() => showSlide(slide + 1), 5000);
+  });
+  gallery.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      selectSlide(slide + (event.key === 'ArrowRight' ? 1 : -1));
+    }
+  });
+  gallery.addEventListener('focusin', (event) => {
+    if (event.target !== playButton) stopSlideshow();
+  });
+  gallery.addEventListener('mouseenter', stopSlideshow);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) stopSlideshow(); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) stopSlideshow();
+    }).observe(gallery);
+  }
+
+  // Marca a seção atual sem interferir nos links nativos.
+  const navLinks = $$('#menu a');
+  const updateNavigation = () => {
+    let current = '';
+    navLinks.forEach((link) => {
+      const section = $(link.getAttribute('href'));
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 150 && rect.bottom > 150) current = link.hash;
+    });
+    navLinks.forEach((link) => {
+      if (link.hash === current) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  };
+  addEventListener('scroll', updateNavigation, { passive: true });
+  updateNavigation();
+
   // Cursor personalizado (somente desktop)
   const cursor = $('.cursor');
-  if (finePointer) {
+  if (finePointer && getComputedStyle(cursor).display !== 'none' && !reduced) {
     let x = 0, y = 0, px = 0, py = 0, on = false;
     addEventListener('mousemove', (e) => {
       x = e.clientX; y = e.clientY;

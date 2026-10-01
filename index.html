@@ -23,7 +23,7 @@
 
   <header class="header" id="header">
     <div class="header__inner">
-      <a href="#inicio" class="header__logo">BIANCONERI</a>
+      <a href="#inicio" class="header__logo" aria-label="Juventus Bianconeri — início"><img class="header__crest" src="./assets/images/juventus.png" alt="" width="700" height="700"><span>BIANCONERI</span></a>
       <nav class="header__nav" id="menu" aria-label="Principal">
         <ul>
           <li><a href="#inicio">Início</a></li>
@@ -33,8 +33,7 @@
         </ul>
       </nav>
       <div class="header__right">
-        <!-- INSERIR LINK DE COMPRA AQUI -->
-        <a href="#comprar" class="header__buy">COMPRAR</a>
+        <a href="https://touti.com.br/products/bianconeri-desodorante-colonia-100ml" class="header__buy">COMPRAR</a>
         <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
       </div>
     </div>
@@ -54,8 +53,7 @@
           <p class="hero__label reveal reveal--up" style="--d:.25s">Perfume Masculino</p>
           <p class="hero__text reveal reveal--up" style="--d:.35s">Uma fragrância criada para homens que deixam sua presença antes mesmo de dizer uma palavra.</p>
           <div class="hero__actions reveal reveal--up" style="--d:.45s">
-            <!-- INSERIR LINK DE COMPRA AQUI -->
-            <a href="#comprar" class="btn btn--primary" data-magnetic>QUERO O MEU</a>
+            <a href="https://touti.com.br/products/bianconeri-desodorante-colonia-100ml" class="btn btn--primary" data-magnetic>QUERO O MEU</a>
             <a href="#fragrancia" class="btn btn--ghost" data-magnetic>CONHECER A FRAGRÂNCIA</a>
           </div>
         </div>
@@ -99,8 +97,28 @@
     <!-- PRODUTO -->
     <section class="product" id="produto">
       <div class="product__inner">
-        <div class="product__visual reveal reveal--scale">
-          <img src="./assets/images/bianconeri-campaign.png" alt="Frasco do perfume Bianconeri" loading="lazy" width="1122" height="1402">
+        <div class="product__gallery reveal reveal--scale" role="region" aria-roledescription="carrossel" aria-label="Apresentação do Bianconeri">
+          <p class="eyebrow">BIANCONERI EM CADA DETALHE</p>
+          <div class="product__visual">
+            <img id="product-photo" src="./assets/images/bianconeri-100ml.webp" alt="Frasco branco do perfume Juventus Bianconeri 100 ml com tampa prateada" loading="lazy" width="962" height="962">
+          </div>
+          <div class="gallery__controls" aria-label="Controles da apresentação">
+            <button type="button" class="gallery__arrow" data-slide-prev aria-label="Foto anterior" aria-controls="product-photo">&#8592;</button>
+            <span class="gallery__counter">01 / 05</span>
+            <button type="button" class="gallery__play" aria-pressed="false" aria-controls="product-photo">Reproduzir apresentação</button>
+            <button type="button" class="gallery__arrow" data-slide-next aria-label="Próxima foto" aria-controls="product-photo">&#8594;</button>
+          </div>
+          <div class="gallery__thumbnails" aria-label="Escolher foto do produto">
+            <button type="button" class="gallery__thumb" aria-label="Ver foto 1: frasco" aria-pressed="true" aria-controls="product-photo"><img src="./assets/images/bianconeri-100ml.webp" alt="Frasco branco do perfume Juventus Bianconeri 100 ml com tampa prateada" width="962" height="962" loading="lazy"></button>
+            <button type="button" class="gallery__thumb" aria-label="Ver foto 2: ambiente" aria-pressed="false" aria-controls="product-photo"><img src="./assets/images/bianconeri-ambiente.jpg" alt="Bianconeri sobre uma bancada com folhas e pedras" width="447" height="447" loading="lazy"></button>
+            <button type="button" class="gallery__thumb" aria-label="Ver foto 3: estúdio" aria-pressed="false" aria-controls="product-photo"><img src="./assets/images/bianconeri-estudio.webp" alt="Frasco Bianconeri em fundo cinza com reflexo" width="500" height="500" loading="lazy"></button>
+            <button type="button" class="gallery__thumb" aria-label="Ver foto 4: limão" aria-pressed="false" aria-controls="product-photo"><img src="./assets/images/bianconeri-limao.webp" alt="Bianconeri ao lado de um limão sobre madeira" width="500" height="500" loading="lazy"></button>
+            <button type="button" class="gallery__thumb" aria-label="Ver foto 5: Juventus" aria-pressed="false" aria-controls="product-photo"><img src="./assets/images/bianconeri-juventus.webp" alt="Frasco Bianconeri na mão de uma pessoa vestindo a camisa da Juventus" width="500" height="500" loading="lazy"></button>
+          </div>
+          <div class="gallery__story" aria-live="polite" aria-atomic="true">
+            <h3 class="gallery__title">Uma assinatura em branco e preto.</h3>
+            <p class="gallery__caption">O frasco Bianconeri reúne o contraste do branco e preto com o brilho da tampa prateada.</p>
+          </div>
         </div>
         <div class="product__info">
           <p class="eyebrow">A sua próxima assinatura</p>
@@ -112,8 +130,7 @@
             <div class="card reveal reveal--up" style="--d:.35s"><p class="card__label">Estilo</p><p class="card__value">Elegante • Marcante • Moderno</p></div>
           </div>
           <div class="product__cta reveal reveal--up" style="--d:.45s">
-            <!-- INSERIR LINK DE COMPRA AQUI -->
-            <a href="#comprar" class="btn btn--primary" data-magnetic>GARANTIR MEU BIANCONERI</a>
+            <a href="https://touti.com.br/products/bianconeri-desodorante-colonia-100ml" class="btn btn--primary" data-magnetic>GARANTIR MEU BIANCONERI</a>
           </div>
         </div>
       </div>
@@ -167,8 +184,7 @@
         <h2 class="cta__title reveal reveal--up">SUA PRESENÇA TEM UMA ASSINATURA.</h2>
         <p class="cta__text reveal reveal--up" style="--d:.15s">Descubra Bianconeri.</p>
         <div class="reveal reveal--up" style="--d:.3s">
-          <!-- INSERIR LINK DE COMPRA AQUI -->
-          <a href="#comprar" class="btn btn--primary btn--lg" data-magnetic>QUERO O MEU</a>
+          <a href="https://touti.com.br/products/bianconeri-desodorante-colonia-100ml" class="btn btn--primary btn--lg" data-magnetic>QUERO O MEU</a>
         </div>
       </div>
     </section>
